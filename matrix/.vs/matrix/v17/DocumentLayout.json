@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\repos\\oop-wsei\\matrix\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0226F8F5-BEAE-442E-AD47-B54430F76F0F}|ClassLibrary\\ClassLibrary.csproj|e:\\repos\\oop-wsei\\matrix\\classlibrary\\matrix2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0226F8F5-BEAE-442E-AD47-B54430F76F0F}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\matrix2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Matrix2D.cs",
+              "DocumentMoniker": "E:\\repos\\oop-wsei\\matrix\\ClassLibrary\\Matrix2D.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Matrix2D.cs",
+              "ToolTip": "E:\\repos\\oop-wsei\\matrix\\ClassLibrary\\Matrix2D.cs",
+              "RelativeToolTip": "ClassLibrary\\Matrix2D.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T16:06:46.426Z",
+              "EditorCaption": ""
             }
           ]
         }
