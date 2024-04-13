@@ -44,10 +44,38 @@
         {
             return !(left == right);
         }
-        
         public override int GetHashCode()
         {
             return HashCode.Combine(a,b,c,d);
+        }
+        public static Matrix2D operator + (Matrix2D left, Matrix2D right)
+        {
+            return new Matrix2D(left.a + right.a, left.b + right.b, left.c + right.c, left.d + right.d);
+        }
+        public static Matrix2D operator - (Matrix2D left, Matrix2D right)
+        {
+            return new Matrix2D(left.a - right.a, left.b - right.b, left.c - right.c, left.d - right.d);
+        }
+        public static Matrix2D operator * (Matrix2D left, Matrix2D right)
+        {
+            return new Matrix2D(
+                left.a * right.a + left.b * right.c,
+                left.a * right.b + left.b * right.d,
+                left.c * right.a + left.d * right.c,
+                left.c * right.b + left.d * right.d
+            );
+        }
+        public static Matrix2D operator * (Matrix2D matrix, int k)
+        {
+            return new Matrix2D(matrix.a * k, matrix.b * k, matrix.c * k, matrix.d * k);
+        }
+        public static Matrix2D operator * (int k, Matrix2D matrix)
+        {
+            return k * matrix;
+        }
+        public static Matrix2D operator - (Matrix2D matrix)
+        {
+            return -1 * matrix;
         }
 
     }
