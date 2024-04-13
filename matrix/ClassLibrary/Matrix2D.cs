@@ -29,16 +29,25 @@
         public bool Equals(Matrix2D? other)
         {
             if(other is null) return false;
-            if(ReferenceEquals(other, this)) return true;
-            return this.a == other.a && this.b == other.b && this.c == other.c && this.d == other.d;
+            if(ReferenceEquals(this, other)) return true;
+            return a == other.a && b == other.b && c == other.c && d == other.d;
+        }
+        public override bool Equals(object? obj)
+        {
+            return obj is Matrix2D other && Equals(other);
         }
         public static bool operator == (Matrix2D left, Matrix2D right)
         {
-            return left.Equals(right);
+            return ReferenceEquals(left, right) || (left is not null && left.Equals(right));
         }
         public static bool operator != (Matrix2D left, Matrix2D right)
         {
-            return !left.Equals(right);
+            return !(left == right);
+        }
+        
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(a,b,c,d);
         }
 
     }
