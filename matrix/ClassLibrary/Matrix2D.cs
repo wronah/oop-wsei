@@ -1,8 +1,8 @@
 ﻿namespace ClassLibrary
 {
-    public class Matrix2D
+    public class Matrix2D : IEquatable<Matrix2D>
     {
-        public static Matrix2D Id { get { return new Matrix2D(1, 0, 0, 1); } }
+        public static Matrix2D Id { get { return new Matrix2D(); } }
         public static Matrix2D Zero { get { return new Matrix2D(0, 0, 0, 0); } }
 
         private int a;
@@ -17,10 +17,29 @@
             this.c = c;
             this.d = d;
         }
+        public Matrix2D() : this(1,0,0,1)
+        {
+        }
 
         public override string ToString()
         {
             return $"[[{a},{b}], [{c}, {d}]]";
         }
+
+        public bool Equals(Matrix2D? other)
+        {
+            if(other is null) return false;
+            if(ReferenceEquals(other, this)) return true;
+            return this.a == other.a && this.b == other.b && this.c == other.c && this.d == other.d;
+        }
+        public static bool operator == (Matrix2D left, Matrix2D right)
+        {
+            return left.Equals(right);
+        }
+        public static bool operator != (Matrix2D left, Matrix2D right)
+        {
+            return !left.Equals(right);
+        }
+
     }
 }
