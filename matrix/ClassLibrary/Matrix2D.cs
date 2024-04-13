@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary
+﻿using System.Text.RegularExpressions;
+
+namespace ClassLibrary
 {
     public class Matrix2D : IEquatable<Matrix2D>
     {
@@ -88,6 +90,27 @@
         public int Det()
         {
             return Determinant(this);
+        }
+        public static explicit operator int[,] (Matrix2D matrix)
+        {
+            return new int[2, 2] { { matrix.a, matrix.b }, { matrix.c, matrix.d } };
+        }
+        public static Matrix2D Parse(string input)
+        {
+            var pattern = @"\[\[([0-9]+), ([0-9]+)\], \[([0-9]+), ([0-9]+)\]\]";
+            Regex regex = new Regex(pattern);
+
+            var matches = regex.Matches(input);
+            if(matches.Count > 0)
+            {
+                return new Matrix2D(
+                    int.Parse(matches[0].Groups[1].Value),
+                    int.Parse(matches[0].Groups[2].Value),
+                    int.Parse(matches[0].Groups[3].Value),
+                    int.Parse(matches[0].Groups[4].Value)
+                );
+            }
+            throw new FormatException();
         }
     }
 }
