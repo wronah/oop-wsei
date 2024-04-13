@@ -7,10 +7,10 @@ namespace ClassLibrary
         public static Matrix2D Id { get { return new Matrix2D(); } }
         public static Matrix2D Zero { get { return new Matrix2D(0, 0, 0, 0); } }
 
-        private int a;
-        private int b;
-        private int c;
-        private int d;
+        private readonly int a;
+        private readonly int b;
+        private readonly int c;
+        private readonly int d;
 
         public Matrix2D(int a, int b, int c, int d)
         {
@@ -25,7 +25,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"[[{a},{b}], [{c}, {d}]]";
+            return $"[[{a}, {b}], [{c}, {d}]]";
         }
 
         public bool Equals(Matrix2D? other)
@@ -69,11 +69,12 @@ namespace ClassLibrary
         }
         public static Matrix2D operator * (Matrix2D matrix, int k)
         {
-            return new Matrix2D(matrix.a * k, matrix.b * k, matrix.c * k, matrix.d * k);
+            var test = new Matrix2D(matrix.a * k, matrix.b * k, matrix.c * k, matrix.d * k);
+            return test;
         }
         public static Matrix2D operator * (int k, Matrix2D matrix)
         {
-            return k * matrix;
+            return matrix * k;
         }
         public static Matrix2D operator - (Matrix2D matrix)
         {

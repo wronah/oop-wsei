@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\repos\\oop-wsei\\matrix\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3AF0D0B6-072F-4D65-A57E-2AA6A7445364}|UnitTests\\UnitTests.csproj|e:\\repos\\oop-wsei\\matrix\\unittests\\matrix2dtest\\matrixoperationstest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3AF0D0B6-072F-4D65-A57E-2AA6A7445364}|UnitTests\\UnitTests.csproj|solutionrelative:unittests\\matrix2dtest\\matrixoperationstest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0226F8F5-BEAE-442E-AD47-B54430F76F0F}|ClassLibrary\\ClassLibrary.csproj|e:\\repos\\oop-wsei\\matrix\\classlibrary\\matrix2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0226F8F5-BEAE-442E-AD47-B54430F76F0F}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\matrix2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,12 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MatrixOperationsTest.cs",
+              "DocumentMoniker": "E:\\repos\\oop-wsei\\matrix\\UnitTests\\Matrix2DTest\\MatrixOperationsTest.cs",
+              "RelativeDocumentMoniker": "UnitTests\\Matrix2DTest\\MatrixOperationsTest.cs",
+              "ToolTip": "E:\\repos\\oop-wsei\\matrix\\UnitTests\\Matrix2DTest\\MatrixOperationsTest.cs",
+              "RelativeToolTip": "UnitTests\\Matrix2DTest\\MatrixOperationsTest.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAIwBsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-13T22:07:13.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Matrix2D.cs",
               "DocumentMoniker": "E:\\repos\\oop-wsei\\matrix\\ClassLibrary\\Matrix2D.cs",
               "RelativeDocumentMoniker": "ClassLibrary\\Matrix2D.cs",
-              "ToolTip": "E:\\repos\\oop-wsei\\matrix\\ClassLibrary\\Matrix2D.cs*",
-              "RelativeToolTip": "ClassLibrary\\Matrix2D.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAlAAAA",
+              "ToolTip": "E:\\repos\\oop-wsei\\matrix\\ClassLibrary\\Matrix2D.cs",
+              "RelativeToolTip": "ClassLibrary\\Matrix2D.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T16:06:46.426Z",
               "EditorCaption": ""
