@@ -77,6 +77,17 @@
         {
             return -1 * matrix;
         }
-
+        public static Matrix2D Transpose(Matrix2D matrix)
+        {
+            return new Matrix2D(matrix.a, matrix.c, matrix.b, matrix.d);
+        }
+        public static int Determinant(Matrix2D matrix)
+        {
+            return matrix.a * matrix.d - matrix.b * matrix.c;
+        }
+        public int Det()
+        {
+            return Determinant(this);
+        }
     }
 }
