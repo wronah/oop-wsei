@@ -11,13 +11,13 @@ namespace ClassLibrary
             {
                 throw new ArgumentException("Invalid number of hours (cannot be less than 0)");
             }
-            if (minutes < 0 || minutes > 59)
+            if (minutes < 0)
             {
-                throw new ArgumentException("Invalid number of minutes (min 0, max 59)");
+                throw new ArgumentException("Invalid number of minutes (cannot be less than 0)");
             }
-            if (seconds < 0 || seconds > 59)
+            if (seconds < 0)
             {
-                throw new ArgumentException("Invalid number of seconds (min 0, max 59)");
+                throw new ArgumentException("Invalid number of seconds (cannot be less than 0)");
             }
             Duration = hours * 3600 + minutes * 60 + seconds;
         }
@@ -27,17 +27,17 @@ namespace ClassLibrary
             {
                 throw new ArgumentException("Invalid number of hours (cannot be less than 0)");
             }
-            if (minutes < 0 || minutes > 59)
+            if (minutes < 0)
             {
-                throw new ArgumentException("Invalid number of minutes (min 0, max 59)");
+                throw new ArgumentException("Invalid number of minutes (cannot be less than 0)");
             }
             Duration = hours * 3600 + minutes * 60;
         }
         public TimePeriod(long seconds)
         {
-            if (seconds < 0 || seconds > 59)
+            if (seconds < 0)
             {
-                throw new ArgumentException("Invalid number of seconds (min 0, max 59)");
+                throw new ArgumentException("Invalid number of seconds (cannot be less than 0)");
             }
             Duration = seconds;
         }
@@ -128,6 +128,25 @@ namespace ClassLibrary
             if (t1.CompareTo(t2) == 1 || t1.CompareTo(t2) == 0)
                 return true;
             return false;
+        }
+
+        public TimePeriod Plus(TimePeriod timePeriod)
+        {
+            return new TimePeriod
+            (
+                Duration + timePeriod.Duration
+            );
+        }
+        public static TimePeriod Plus(TimePeriod timePeriod1, TimePeriod timePeriod2)
+        {
+            return new TimePeriod
+            (
+                timePeriod1.Duration + timePeriod2.Duration
+            );
+        }
+        public static TimePeriod operator +(TimePeriod timePeriod1, TimePeriod timePeriod2)
+        {
+            return Plus(timePeriod1, timePeriod2);
         }
     }
 }

@@ -9,15 +9,15 @@ namespace ClassLibrary
         public byte Seconds { get; } = 0;
         public Time(byte hours, byte minutes, byte seconds)
         {
-            if (hours < 0 || hours > 23)
+            if (hours > 23)
             {
                 throw new ArgumentException("Invalid number of hours (min 0, max 23)");
             }
-            if (minutes < 0 || minutes > 59)
+            if (minutes > 59)
             {
                 throw new ArgumentException("Invalid number of minutes (min 0, max 59)");
             }
-            if (seconds < 0 || seconds > 59)
+            if (seconds > 59)
             {
                 throw new ArgumentException("Invalid number of seconds (min 0, max 59)");
             }
@@ -27,11 +27,11 @@ namespace ClassLibrary
         }
         public Time(byte hours, byte minutes)
         {
-            if (hours < 0 || hours > 23)
+            if (hours > 23)
             {
                 throw new ArgumentException("Invalid number of hours (min 0, max 23)");
             }
-            if (minutes < 0 || minutes > 59)
+            if (minutes > 59)
             {
                 throw new ArgumentException("Invalid number of minutes (min 0, max 59)");
             }
@@ -40,7 +40,7 @@ namespace ClassLibrary
         }
         public Time(byte hours)
         {
-            if (hours < 0 || hours > 23)
+            if (hours > 23)
             {
                 throw new ArgumentException("Invalid number of hours (min 0, max 23)");
             }
@@ -120,6 +120,29 @@ namespace ClassLibrary
                 return true;
             return false;
         }
-        
+        public Time Plus(TimePeriod timePeriod)
+        {
+            var values = timePeriod.ToString().Split(':');
+            return new Time
+            (
+                Convert.ToByte(Hours + Convert.ToByte(values[0]) % 24),
+                Convert.ToByte(Minutes + Convert.ToByte(values[1]) % 60),
+                Convert.ToByte(Seconds + Convert.ToByte(values[2]) % 24)
+            );
+        }
+        public static Time Plus(Time time, TimePeriod timePeriod)
+        {
+            var values = timePeriod.ToString().Split(':');
+            return new Time
+            (
+                Convert.ToByte(time.Hours + Convert.ToByte(values[0]) % 24),
+                Convert.ToByte(time.Minutes + Convert.ToByte(values[1]) % 60),
+                Convert.ToByte(time.Seconds + Convert.ToByte(values[2]) % 24)
+            );
+        }
+        public static Time operator +(Time time, TimePeriod timePeriod)
+        {
+            return Plus(time, timePeriod);
+        }
     }
 }
