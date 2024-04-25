@@ -9,17 +9,41 @@ namespace ClassLibrary
         public byte Seconds { get; } = 0;
         public Time(byte hours, byte minutes, byte seconds)
         {
+            if (hours < 0 || hours > 23)
+            {
+                throw new ArgumentException("Invalid number of hours (min 0, max 23)");
+            }
+            if (minutes < 0 || minutes > 59)
+            {
+                throw new ArgumentException("Invalid number of minutes (min 0, max 59)");
+            }
+            if (seconds < 0 || seconds > 59)
+            {
+                throw new ArgumentException("Invalid number of seconds (min 0, max 59)");
+            }
             Hours = hours;
             Minutes = minutes;
             Seconds = seconds;
         }
         public Time(byte hours, byte minutes)
         {
+            if (hours < 0 || hours > 23)
+            {
+                throw new ArgumentException("Invalid number of hours (min 0, max 23)");
+            }
+            if (minutes < 0 || minutes > 59)
+            {
+                throw new ArgumentException("Invalid number of minutes (min 0, max 59)");
+            }
             Hours = hours;
             Minutes = minutes;
         }
         public Time(byte hours)
         {
+            if (hours < 0 || hours > 23)
+            {
+                throw new ArgumentException("Invalid number of hours (min 0, max 23)");
+            }
             Hours = hours;
         }
         public Time(string input)
