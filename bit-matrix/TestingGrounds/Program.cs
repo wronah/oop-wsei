@@ -6,19 +6,16 @@ namespace TestingGrounds
     {
         static void Main(string[] args)
         {
-            // operator `==`, `!=`
-            // zgodne wartości
-            var m1 = new BitMatrix(2, 3, 1, 1, 1, 0, 0, 0);
-            var m2 = new BitMatrix(2, 3, 1, 1, 1, 0, 0, 0);
-            Console.WriteLine(m1 != m2);
-            Console.WriteLine(m1 == m2);
-            Console.WriteLine(m2 != m1);
-            Console.WriteLine(m2 == m1);
+            // indekser - poprawne indeksy
+            var m = new BitMatrix(3, 4);
+            m[0, 0] = 1;
+            Console.WriteLine(m[0, 0]);
 
-            m1 = new BitMatrix(1, 1, 1);
-            m2 = new BitMatrix(1, 1, 1);
-            Console.WriteLine(m1 == m2);
-            Console.WriteLine(m1 != m2);
+            m[2, 3] = 1;
+            Console.WriteLine(m[2, 3]);
+
+            m[1, 1] = 1;
+            Console.WriteLine(m[1, 1]);
         }
     }
 }

@@ -1,33 +1,41 @@
-﻿namespace ClassLibrary
+﻿using System.Collections;
+
+namespace ClassLibrary
 {
-    public partial class BitMatrix : IEquatable<BitMatrix>
+    public partial class BitMatrix : IEnumerable<int>
     {
-        public bool Equals(BitMatrix? other)
+        public int this[int row, int column]
         {
-            if (other is null) return false;
-            if (ReferenceEquals(this, other)) return true;
-            if(NumberOfRows != other.NumberOfRows && NumberOfColumns != other.NumberOfColumns) return false;
-            for(int i = 0; i < data.Length; i++)
+            get 
             {
-                if (data[i] != other.data[i]) return false;
+                if ((row < 0 || row >= NumberOfRows) || (column < 0 || column >= NumberOfColumns)) throw new IndexOutOfRangeException();
+                return BoolToBit(data[row * NumberOfColumns + column]);
             }
-            return NumberOfRows == other.NumberOfRows && NumberOfColumns == other.NumberOfColumns && IsReadOnly == other.IsReadOnly;
+            set 
+            { 
+                if ((row < 0 || row >= NumberOfRows) || (column < 0 || column >= NumberOfColumns)) throw new IndexOutOfRangeException();
+                data[row * NumberOfColumns + column] = BitToBool(value);
+            }
         }
-        public override bool Equals(object? obj)
+
+        public IEnumerator<int> GetEnumerator()
         {
-            return obj is BitMatrix other && Equals(other);
+            for(int row = 0; row < NumberOfRows; row++)
+            {
+                for(int column = 0; column < NumberOfColumns; column++)
+                {
+                    yield return this[row, column];
+                }
+            }
         }
-        public static bool operator ==(BitMatrix left, BitMatrix right)
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            return ReferenceEquals(left, right) || (left is not null && left.Equals(right));
+            return GetEnumerator();
         }
-        public static bool operator !=(BitMatrix left, BitMatrix right)
+        IEnumerator<int> IEnumerable<int>.GetEnumerator()
         {
-            return !(left == right);
-        }
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(data, NumberOfRows, NumberOfColumns, IsReadOnly);
+            return GetEnumerator();
         }
     }
 }

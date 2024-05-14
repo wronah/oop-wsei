@@ -3,7 +3,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    public partial class BitMatrix
+    public partial class BitMatrix : IEquatable<BitMatrix>
     {
         private BitArray data;
         public int NumberOfRows { get; }
@@ -117,6 +117,37 @@ namespace ClassLibrary
                     data[i] = false;
                 }
             }
+        }
+        public bool Equals(BitMatrix other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            if (NumberOfRows != other.NumberOfRows && NumberOfColumns != other.NumberOfColumns) return false;
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] != other.data[i]) return false;
+            }
+            return NumberOfRows == other.NumberOfRows && NumberOfColumns == other.NumberOfColumns && IsReadOnly == other.IsReadOnly;
+        }
+        public override bool Equals(object o)
+        {
+            if (ReferenceEquals(null, o)) return false;
+            if (ReferenceEquals(this, o)) return true;
+            if (typeof(BitMatrix) != o.GetType()) return false;
+
+            return Equals((BitMatrix)o);
+        }
+        public static bool operator ==(BitMatrix left, BitMatrix right)
+        {
+            return Equals(left, right);
+        }
+        public static bool operator !=(BitMatrix left, BitMatrix right)
+        {
+            return !(left == right);
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(data, NumberOfRows, NumberOfColumns, IsReadOnly);
         }
     }
 }
