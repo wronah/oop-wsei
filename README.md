@@ -7,3 +7,4 @@ This is a repository for class at WSEI. (Advanced OOP and C#)
 - [ ] Pudelko &#8594; implementation of Pudelko class which is a representation of a box (package)
 - [x] Time, TimePeriod &#8594; implementation of Time and TimePeriod struct which is a representation of Time in date
 - [x] BitMatrix &#8594; implementation of BitMatrix class which is a representation of a 2D matrix in a BitArray
+- [ ] TempElementsFramework &#8594; implementation of IDisposable (handling temporary files and folders)
